@@ -14,6 +14,6 @@ public class PublicResource {
 
     @GetMapping
     public String getPublic(HttpServletRequest request) {
-        return String.format("Data: %s IP: %s", LocalDate.now().toString(), request.getRemoteAddr());
+        return String.format("Data: %s Remote IP: %s Header IP %s", LocalDate.now().toString(), request.getRemoteAddr(), request.getHeader("X-FORWARDED-FOR"));
     }
 }
